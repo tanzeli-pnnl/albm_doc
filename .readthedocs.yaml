@@ -1,3 +1,6 @@
+# Read the Docs build configuration
+# https://docs.readthedocs.io/en/stable/config-file/v2.html
+
 version: 2
 
 build:
@@ -7,10 +10,13 @@ build:
 
 sphinx:
   configuration: Docs/sphinx_doc/conf.py
+  fail_on_warning: false
 
 python:
   install:
-  - requirements: Docs/requirements.txt
+    - requirements: Docs/requirements.txt
 
+# Build HTML, PDF, and ePub editions
 formats:
-  - htmlzip
+  - pdf
+  - epub
