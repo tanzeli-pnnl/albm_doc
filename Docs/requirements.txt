@@ -1,0 +1,6 @@
+docutils<=0.20
+pygments
+myst-parser
+sphinx>=5.0
+sphinx-design
+sphinx_rtd_theme>=1.0.0
