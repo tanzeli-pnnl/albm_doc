@@ -19,7 +19,9 @@ Prerequisites
 ALBM is written in Fortran and requires:
 
 * A Fortran compiler that supports the Fortran 90 standard (e.g., ``gfortran`` or Intel ``ifort``)
+* An MPI implementation (e.g., ``OpenMPI`` or ``MVAPICH2``) for parallel execution
 * The NetCDF library (version 4 or later) with Fortran bindings
+* PnetCDF (Parallel-NetCDF) for parallel NetCDF I/O
 
 On most Linux systems these can be installed via the system package manager.
 For example, on Ubuntu/Debian:
@@ -27,6 +29,22 @@ For example, on Ubuntu/Debian:
 .. code:: shell
 
    sudo apt-get install gfortran libnetcdf-dev libnetcdff-dev
+
+On macOS, a common setup is:
+
+.. code:: shell
+
+   brew install gcc open-mpi netcdf
+
+PnetCDF can be downloaded from:
+
+   https://parallel-netcdf.github.io/wiki/Download.html
+
+Typical PnetCDF build steps are::
+
+   ./configure --prefix=/path/to/pnetcdf/install
+   make
+   make install
 
 Building the Model
 ------------------
@@ -38,11 +56,16 @@ Navigate to the ``src`` directory and compile using the provided Makefile:
    cd ALBM/src
    make
 
-On successful compilation, the executable ``bLake.exe`` will be produced
-in the ``src`` directory.
+On successful compilation, an executable (commonly ``bLake.exe`` or
+``ALBM.exe`` depending on the build script) will be produced in the
+``src`` directory.
 
 If you need to adjust compiler flags or NetCDF library paths, edit the
 ``Makefile`` directly before running ``make``.
+
+If your ALBM source tree includes ``make.sh`` (Intel) or ``gnu_make.sh``
+(GNU), set ``NETCDF_HOME`` in the script to your PnetCDF installation
+directory and then run the corresponding script.
 
 Running the Model
 -----------------
@@ -57,7 +80,20 @@ Once the namelist is configured, run the model from the ``src`` directory:
 
 .. code:: shell
 
-   ./bLake.exe
+   ./ALBM.exe namelist.bLake
+
+For MPI runs on Linux or macOS workstations, use:
+
+.. code:: shell
+
+   mpirun -np <ncores> ./ALBM.exe namelist.bLake
+
+On Linux clusters, edit the job script (e.g., ``bLakeJob.sub``) to load
+compiler/MPI modules and set ``NETCDF_HOME``, then submit with:
+
+.. code:: shell
+
+   sbatch bLakeJob.sub
 
 Model output will be written to the directory specified by ``archive_dir``
 in the ``[archive]`` namelist group. See :ref:`ModelOutput` for details

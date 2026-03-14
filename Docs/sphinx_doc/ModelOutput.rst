@@ -4,8 +4,7 @@ Model Output
 ============
 
 ALBM writes model output to NetCDF files in the directory specified by
-``archive_dir`` in the ``[archive]`` namelist group. One output file is
-created per lake per simulation.
+``archive_dir`` in the ``[archive]`` namelist group.
 
 Output Variables
 ----------------
@@ -24,21 +23,30 @@ Water Column
    * - Variable
      - Units
      - Description
-   * - ``tw``
+   * - ``watertemp``
      - K
      - Water temperature profile.
-   * - ``DO``
-     - mg L⁻¹
+   * - ``do``
+     - mol m^-3
      - Dissolved oxygen concentration profile.
-   * - ``Dco2``
-     - μmol L⁻¹
+   * - ``dco2``
+     - mol m^-3
      - Dissolved CO₂ concentration profile.
-   * - ``Dch4``
-     - μmol L⁻¹
+   * - ``dch4``
+     - mol m^-3
      - Dissolved CH₄ concentration profile.
-   * - ``chla``
-     - μg L⁻¹
+   * - ``doc``
+     - mol m^-3
+     - Dissolved organic carbon concentration profile.
+   * - ``srp``
+     - mol m^-3
+     - Soluble reactive phosphorus concentration profile.
+   * - ``chl``
+     - g m^-3
      - Chlorophyll *a* concentration profile (phytoplankton biomass).
+   * - ``phytobio``
+     - mol m^-3
+     - Phytoplankton functional group biomass profile.
 
 Ice and Surface
 ~~~~~~~~~~~~~~~
@@ -50,15 +58,21 @@ Ice and Surface
    * - Variable
      - Units
      - Description
-   * - ``ice``
+   * - ``icethick``
      - m
      - Ice thickness.
-   * - ``iceon``
-     - day of year
-     - Ice-on date (lake freeze-up).
-   * - ``iceoff``
-     - day of year
-     - Ice-off date (lake ice break-up).
+   * - ``snowthick``
+     - m
+     - Snow thickness on ice cover.
+   * - ``lakeheatf``
+     - W m^-2
+     - Downward net heat flux at the water-air interface.
+   * - ``latentheatf``
+     - W m^-2
+     - Latent heat flux at the water-air interface.
+   * - ``sensheatf``
+     - W m^-2
+     - Sensible heat flux at the water-air interface.
 
 Gas Fluxes
 ~~~~~~~~~~
@@ -71,24 +85,45 @@ Gas Fluxes
      - Units
      - Description
    * - ``fco2``
-     - g C m⁻² day⁻¹
-     - Diffusive CO₂ flux at the lake surface (positive = emission).
-   * - ``fch4_diff``
-     - g C m⁻² day⁻¹
+     - mol m^-2 d^-1
+     - Total CO₂ flux at the lake surface (positive = emission).
+   * - ``fch4d``
+     - mol m^-2 d^-1
      - Diffusive CH₄ flux at the lake surface.
-   * - ``fch4_ebul``
-     - g C m⁻² day⁻¹
+   * - ``fch4e``
+     - mol m^-2 d^-1
      - Ebullitive (bubble) CH₄ flux at the lake surface.
 
 Output File Naming
 ------------------
 
-Output files are named following the convention::
+According to the ALBM manual, output files are named following the
+convention::
 
-   <archive_dir>/<lake_id>_output.nc
+  bLakeOut.<varname>.<date0>_<date1>.nc
 
-where ``<lake_id>`` is the integer identifier of the lake as listed in
-``lakeid_file``.
+where ``<varname>`` is the variable name (for example ``watertemp``),
+``<date0>`` is the simulation start date from ``Start_Year``/
+``Start_Month``/``Start_Day``, and ``<date1>`` is the simulation end
+date from ``End_Year``/``End_Month``/``End_Day``.
+
+There is also a special grid-description file:
+
+::
+
+  bLakeOut.zw.nc
+
+Additional manual variables
+---------------------------
+
+Depending on activated modules, ALBM can also produce:
+
+* ``lwup``: upward longwave radiation at the water-air interface (W m^-2)
+* ``swup``: upward shortwave radiation at the water-air interface (W m^-2)
+* ``momf``: momentum energy flux at the water-air interface (kg m^-1 s^-2)
+* ``sedheatf``: upward heat flux at the water-sediment interface (W m^-2)
+* ``dno3``: dissolved nitrate (not available yet) (mol m^-3)
+* ``dnh4``: dissolved ammonium (not available yet) (mol m^-3)
 
 Visualization
 -------------

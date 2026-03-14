@@ -260,15 +260,57 @@ Input Data Files
 Climate Forcing
 ~~~~~~~~~~~~~~~
 
-ALBM expects daily climate forcing data in NetCDF format. The required
+ALBM expects daily climate forcing data in NetCDF-3 format. The required
 variables are:
 
 * Near-surface air temperature (K)
+* Near-surface daily minimum air temperature (K)
+* Near-surface daily maximum air temperature (K)
+* Relative humidity (%)
+* Surface pressure (Pa)
 * Precipitation rate (kg m⁻² s⁻¹)
+* Snowfall flux (kg m⁻² s⁻¹)
 * Near-surface wind speed (m s⁻¹)
-* Near-surface specific humidity (kg kg⁻¹)
 * Downwelling shortwave radiation (W m⁻²)
 * Downwelling longwave radiation (W m⁻²)
+
+An example atmospheric forcing file layout is::
+
+  netcdf forcing_obs_Allequash {
+  dimensions:
+    time = UNLIMITED ;
+  variables:
+    int date ;
+      date:units = "YYYYMMDD" ;
+    float tas(time) ;
+    float tasmin(time) ;
+    float tasmax(time) ;
+    float hurs(time) ;
+    float ps(time) ;
+    float pr(time) ;
+    float prsn(time) ;
+    float rsds(time) ;
+    float rlds(time) ;
+    float sfcWind(time) ;
+  }
+
+Hydrology forcing should also be in NetCDF-3 format when
+``Hydro_Module = .True.``. An example layout is::
+
+  netcdf forcing_hydro_example {
+  dimensions:
+    time = UNLIMITED ;
+  variables:
+    int time(time) ;
+    float Qsi(time) ;
+    float tQsi(time) ;
+    float dQsi(time) ;
+    float DICQsi(time) ;
+    float DOCQsi(time) ;
+    float POCQsi(time) ;
+    float SRPQsi(time) ;
+    float Qso(time) ;
+  }
 
 The ISIMIP2b climate forcing data used in published ALBM simulations
 are available from the ISIMIP data portal
@@ -282,3 +324,7 @@ provided in NetCDF format. A curated dataset for the ISIMIP lake
 ensemble is available from:
 
    https://doi.org/10.6084/m9.figshare.22635064
+
+The same DOI provides additional ALBM input datasets referenced by the
+manual (radiation support files, auxiliary geospatial layers, and
+configuration inputs).
