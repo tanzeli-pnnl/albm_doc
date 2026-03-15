@@ -6,11 +6,10 @@ Scientific Description
 Overview
 --------
 
-ALBM includes major lake physical, biogeochemical, and biological processes (:numref:`fig-lake-schematic`). 
-It has six modules: Water Thermal Module (WTM), Sediment Thermal Module (STM), 
-Radiative Transfer Module (RTM), Water Biogeochemistry Module (WBM), Sediment Biogeochemistry Module (SBM), 
-and Bubble Transport Module (BTM). WTM & STM, WBM & BTM, and WBM & SBM are two-way coupled. 
-SBM & BTM, WTM & WBM, and STM & SBM are only one-way coupled.
+ALBM can simulate major physical, biogeochemical, and biological processes that are critical 
+for lake CH₄ and CO₂ emissions (:numref:`fig-lake-schematic`).
+
+.. _fig-lake-schematic:
 
 .. figure:: _static/lake_schematic.jpg
    :alt: Schematic of ALBM
@@ -19,11 +18,16 @@ SBM & BTM, WTM & WBM, and STM & SBM are only one-way coupled.
 
    Schematic of lake physical, biogeochemical, and biological processes in ALBM.
 
+It has six modules: Water Thermal Module (WTM), Sediment Thermal Module (STM), 
+Radiative Transfer Module (RTM), Water Biogeochemistry Module (WBM), Sediment Biogeochemistry Module (SBM), 
+and Bubble Transport Module (BTM). WTM & STM, WBM & BTM, and WBM & SBM are two-way coupled. 
+SBM & BTM, WTM & WBM, and STM & SBM are only one-way coupled.
+
 Model Modules
 -------------
 
 Water Thermal Module (WTM)
-~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The WTM module simulates water temperature and ice and snow phenology. It accounts for:
 
@@ -42,7 +46,7 @@ The WTM module simulates water temperature and ice and snow phenology. It accoun
 As shown in :eq:`eq-thermal-diffusion`, temperature evolves by diffusion.
 
 Sediment Thermal Module (STM)
-~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The STM module simulates sediment temperature and ice. It accounts for:
 
@@ -51,7 +55,7 @@ The STM module simulates sediment temperature and ice. It accounts for:
 * Surface energy balance at the sediment-water interface
 
 Radiative Transfer Module (RTM)
-~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The RTM module simulates solar radiation influx at the water surface. It accounts for:
 
@@ -61,7 +65,7 @@ The RTM module simulates solar radiation influx at the water surface. It account
 * Surface albedo corrections (ice, snow, open water)
 
 Water Biogeochemistry Module (WBM)
-~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The WBM module simulates the cycling of organic carbon, inorganic carbon, and nutrients
 in the water column, including:
@@ -76,7 +80,7 @@ in the water column, including:
 * Dissolved gas transport and diffusive exchange with the atmosphere
 
 Sediment Biogeochemistry Module (SBM)
-~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The SBM module simulates the cycling of organic and inorganic carbon
 in sediments, including:
@@ -88,7 +92,7 @@ in sediments, including:
 * Bubble formation
 
 Bubble Transport Module (BTM)
-~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The BTM module represents bubble transport in the water column. Key processes include:
 
