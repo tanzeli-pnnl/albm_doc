@@ -111,12 +111,28 @@ The BTM module represents bubble transport in the water column. Key processes in
 Coordinate System and Resolution
 ---------------------------------
 
-ALBM uses a one-dimensional vertical coordinate. The model domain is
-divided into:
+For each lake, ALBM is configured with a single 1-D water column and multiple laterally aggregated 
+1-D sediment columns (:numref:`fig-lake-structure`). The shape of the 1-D water column is determined 
+by the lake bathymetry, which can be user defined. The lake structure is controlled by the following parameters:
 
-* ``NWLAYER`` water-column layers (default: 50)
-* ``NSLAYER`` sediment layers (default: 40)
-* ``NRLAYER`` riparian/run-off layers (default: 10)
+* ``NWLAYER`` - number of water-column vertical layers (default: 50)
+* ``NSLAYER`` - number of sediment vertical layers (default: 40)
+* ``NSCOL`` - number of sediment columns (default: 4), which cannot be larger than ``NWLAYER``
+
+.. _fig-lake-structure:
+
+.. figure:: _static/lake_structure.png
+   :alt: Schematic of ALBM lake structure
+   :align: center
+   :width: 80%
+
+   Schematic of the bathymetry-resolved lake structure in ALBM.
+
+When the lake depth is larger than 5 meters, both the thickness of water and sediment layers are variable, 
+increasing from 0.1 m exponentially with depth to resolve strong thermal and biogeochemical gradients 
+near the surface and at the sediment-water interface. When the lake depth is smaller than 5 meters, 
+the thickness of water layers is uniform at 0.1 m and the number of water layers is adjusted accordingly.
+The total depth of sediment columns is set to 25 meters, which allows the simulation of thick permafrost.
 
 These values can be modified in the ``[resolution]`` section of the
 namelist file (see :ref:`Inputs`).
