@@ -13,7 +13,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 project   = u'ALBM'
-copyright = u'Pacific Northwest National Laboratory'
+copyright = u'2026, Zeli Tan'
 author    = u'Zeli Tan'
 
 version = u'1.0'
