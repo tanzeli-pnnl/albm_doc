@@ -19,8 +19,7 @@ ice phenology (:ref:`Golub et al., 2022 <Golub2022>`; :ref:`Grant et al., 2021 <
 The source code repository is hosted on
 `GitHub <https://github.com/tanzeli1982/ALBM>`_.
 Questions and issues can be directed to Dr. Zeli Tan by opening an
-Issue on the GitHub page or by emailing
-`tanzeli1982@gmail.com <mailto:tanzeli1982@gmail.com>`_.
+Issue on the GitHub page or by contacting `the author <mailto:tanzeli1982@gmail.com>`_.
 
 .. toctree::
    :hidden:
