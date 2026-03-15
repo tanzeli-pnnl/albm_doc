@@ -6,7 +6,7 @@ developed to simulate how lake physical, biogeochemical, and biological dynamics
 respond to environmental changes (:ref:`Tan et al., 2015 <Tan2015>`, :ref:`Tan et al., 2017 <Tan2017>`,
 :ref:`Tan et al., 2018 <Tan2018>`, :ref:`Tan et al., 2024 <Tan2024>`). It can simulate water/sediment temperature, ice phenology, 
 water/sediment carbon biogeochemistry, dissolved oxygen, phytoplankton biomass, chlorophyll *a*, 
-and greenhouse gas (GHG) diffusive and ebullition emissions. ALBM was originally developed for 
+and CO₂ and CH₄ diffusive and ebullition emissions. ALBM was originally developed for 
 Arctic lakes (:ref:`Tan et al., 2015 <Tan2015>`) but has since been validated and used for diverse lake systems 
 (:ref:`Guseva et al., 2020 <Guseva2020>`; :ref:`Guo et al., 2020 <Guo2020>`, :ref:`Guo et al., 2021 <Guo2021>`).
 

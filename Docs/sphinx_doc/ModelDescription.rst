@@ -18,10 +18,18 @@ for lake CH₄ and CO₂ emissions (:numref:`fig-lake-schematic`).
 
    Schematic of lake physical, biogeochemical, and biological processes in ALBM.
 
-It has six modules: Water Thermal Module (WTM), Sediment Thermal Module (STM), 
+ALBM has six modules: Water Thermal Module (WTM), Sediment Thermal Module (STM), 
 Radiative Transfer Module (RTM), Water Biogeochemistry Module (WBM), Sediment Biogeochemistry Module (SBM), 
-and Bubble Transport Module (BTM). WTM & STM, WBM & BTM, and WBM & SBM are two-way coupled. 
-SBM & BTM, WTM & WBM, and STM & SBM are only one-way coupled.
+and Bubble Transport Module (BTM). The coupling scheme of these modules is illustrated in :numref:`fig-module-coupling`.
+
+.. _fig-module-coupling:
+
+.. figure:: _static/module_coupling.jpg
+   :alt: Schematic of ALBM module coupling
+   :align: center
+   :width: 80%
+
+   Schematic of the coupling between different modules in ALBM.
 
 Model Modules
 -------------
