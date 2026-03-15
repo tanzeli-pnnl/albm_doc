@@ -1,22 +1,35 @@
 .. _ModelDescription:
 
-Model Description
-=================
+Scientific Description
+======================
 
 Overview
 --------
 
-The Advanced Lake Biogeochemistry Model (ALBM) is a one-dimensional,
-process-based lake model designed to simulate lake thermal dynamics,
-carbon cycling, water quality, and greenhouse gas emissions in response
-to environmental change. Although ALBM was originally developed for
-Arctic thermokarst lakes (Tan et al., 2015), it has since been applied
-to boreal, temperate, and global lake ensembles.
-
-ALBM solves for the vertical structure of lake properties (temperature,
-dissolved gases, nutrients, phytoplankton) at user-specified depth
-resolution. The model time step is one day, and climate forcing is
-provided at daily resolution.
+Advanced Lake Biogeochemistry Model (ALBM) is a one-dimensional (1-D), 
+process-based lake model designed to simulate how lake physical, 
+biogeochemical, and biological dynamics respond to environmental 
+changes (:ref:`Tan et al., 2015 <Tan2015>`, :ref:`Tan et al., 2017 <Tan2017>`,
+:ref:`Tan et al., 2018 <Tan2018>`). It includes five major modules: 
+Water Thermal Module (WTM), Sediment Thermal Module (STM), 
+Water BGC Module (WBM), Sediment BGC Module (SBM), 
+and Bubble Transport Module (BTM). WTM simulates water temperature 
+and ice and snow phenology. STM simulates sediment temperature and ice phenology. 
+WBM simulates phytoplankton growth and respiration, heterotrophic respiration, 
+oxic methane production, aerobic methane oxidation, and dissolved gas transport. 
+SBM simulates anaerobic methane production, aerobic carbon decomposition, 
+bubble formation, and dissolved gas transport. BTM simulates bubble transport 
+in the water column. WTM & STM, WBM & BTM, and WBM & SBM are two-way coupled. 
+SBM & BTM, WTM & WBM, and STM & SBM are only one-way coupled. Although the model 
+was originally developed for Arctic lakes (:ref:`Tan et al., 2015 <Tan2015>`), ALBM has since 
+been used for lakes in diverse environments (:ref:`Guseva et al., 2020 <Guseva2020>`;
+:ref:`Guo et al., 2020 <Guo2020>`, :ref:`Guo et al., 2021 <Guo2021>`). 
+ALBM is a member model of the Inter-Sectoral Impact Model Intercomparison Project (ISIMIP) 
+lake sector (https://www.isimip.org/impactmodels/details/232/). ALBM has since participated 
+the ISIMIP2 and ISIMIP3 global and local simulations for lake temperature and 
+ice phenology (:ref:`Golub et al., 2022 <Golub2022>`;
+:ref:`Grant et al., 2021 <Grant2021>`;
+:ref:`Woolway et al., 2021 <Woolway2021>`).
 
 Model Modules
 -------------
