@@ -18,9 +18,8 @@ Core Model Development
 
 .. _Tan2017:
 
-* Tan, Z., Zhuang, Q., Shurpali, N. J., Marushchak, M. E., Biasi, C.,
-   Eugster, W., & Walter Anthony, K. (2017). Modeling CO₂ emissions from
-   Arctic lakes: Model development and site‐level study. *Journal of
+* Tan, Z., Zhuang, Q., Shurpali, N. J., Marushchak, M. E., Biasi, C., Eugster, W., & Walter Anthony, K. (2017). 
+   Modeling CO₂ emissions from Arctic lakes: Model development and site‐level study. *Journal of
    Advances in Modeling Earth Systems*, *9*, 2190–2213.
    https://doi.org/10.1002/2017MS001028
 
