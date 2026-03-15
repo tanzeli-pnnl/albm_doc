@@ -28,7 +28,22 @@ pygments_style = 'sphinx'
 todo_include_todos = False
 
 numfig = True
-numfig_format = {'figure': '%s', 'table': '%s', 'code-block': '%s'}
+numfig_format = {'figure': 'Figure %s', 'table': 'Table %s', 'code-block': 'Code %s'}
+
+# Number every displayed equation
+math_number_all = True
+
+# Reference style in text, e.g. (1), (2), ...
+math_eqref_format = '({number})'
+
+# MathJax tag placement
+mathjax3_config = {
+    "tex": {
+        "tags": "ams",
+        "tagSide": "right",
+        "tagIndent": "0em",
+    }
+}
 
 # -- Options for HTML output ----------------------------------------------
 

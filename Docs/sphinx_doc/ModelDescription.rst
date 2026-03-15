@@ -6,80 +6,95 @@ Scientific Description
 Overview
 --------
 
-ALBM includes five major modules: Water Thermal Module (WTM), Sediment Thermal Module (STM), 
-Water BGC Module (WBM), Sediment BGC Module (SBM), 
-and Bubble Transport Module (BTM). WTM simulates water temperature 
-and ice and snow phenology. STM simulates sediment temperature and ice phenology. 
-WBM simulates phytoplankton growth and respiration, heterotrophic respiration, 
-oxic methane production, aerobic methane oxidation, and dissolved gas transport. 
-SBM simulates anaerobic methane production, aerobic carbon decomposition, 
-bubble formation, and dissolved gas transport. BTM simulates bubble transport 
-in the water column. WTM & STM, WBM & BTM, and WBM & SBM are two-way coupled. 
-SBM & BTM, WTM & WBM, and STM & SBM are only one-way coupled.  
+ALBM includes major lake physical, biogeochemical, and biological processes (:numref:`fig-lake-schematic`). 
+It has six modules: Water Thermal Module (WTM), Sediment Thermal Module (STM), 
+Radiative Transfer Module (RTM), Water Biogeochemistry Module (WBM), Sediment Biogeochemistry Module (SBM), 
+and Bubble Transport Module (BTM). WTM & STM, WBM & BTM, and WBM & SBM are two-way coupled. 
+SBM & BTM, WTM & WBM, and STM & SBM are only one-way coupled.
 
+.. figure:: _static/lake_schematic.jpg
+   :alt: Schematic of ALBM
+   :align: center
+   :width: 80%
+
+   Schematic of lake physical, biogeochemical, and biological processes in ALBM.
 
 Model Modules
 -------------
 
-Thermal Module
+Water Thermal Module (WTM)
 ~~~~~~~~~~~~~~
 
-The thermal module simulates heat transport through the water column and
-sediments. It accounts for:
+The WTM module simulates water temperature and ice and snow phenology. It accounts for:
 
 * Solar radiation penetration and absorption
 * Convective mixing and turbulent diffusion
 * Ice phenology (ice formation and melt)
-* Sediment heat storage and conduction
+* Snow phenology (snow accumulation and melt)
+* Surface energy balance, including net heat flux at the water-air interface
+* Bottom heat flux at the sediment-water interface
 
-Radiative Transfer Module
+.. math::
+   :label: eq-thermal-diffusion
+
+   \frac{\partial T}{\partial t} = D \frac{\partial^2 T}{\partial z^2}
+
+As shown in :eq:`eq-thermal-diffusion`, temperature evolves by diffusion.
+
+Sediment Thermal Module (STM)
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The radiative transfer module computes the downwelling shortwave and
-longwave radiation reaching the lake surface and the attenuation of
-solar radiation through the water column. Inputs include:
+The STM module simulates sediment temperature and ice. It accounts for:
 
-* Downwelling solar radiation (from forcing data)
-* Atmospheric CO₂ and ozone concentrations
-* Aerosol optical depth
-* Surface albedo (ice, snow, and open water)
+* Sediment heat storage and conduction
+* Sediment ice formation and melt
+* Surface energy balance at the sediment-water interface
 
-Carbon Cycling Module
+Radiative Transfer Module (RTM)
+~~~~~~~~~~~~~~~~~~~~~~
+
+The RTM module simulates solar radiation influx at the water surface. It accounts for:
+
+* Downwelling solar radiation spectrum (forced by forcing data)
+* Atmospheric gas absorption (CO₂, O₃) corrections
+* Aerosol scattering and absorption corrections
+* Surface albedo corrections (ice, snow, open water)
+
+Water Biogeochemistry Module (WBM)
 ~~~~~~~~~~~~~~~~~~~~~
 
-The carbon module simulates the cycling of organic and inorganic carbon
-in both the water column and sediments, including:
+The WBM module simulates the cycling of organic carbon, inorganic carbon, and nutrients
+in the water column, including:
 
+* Solar radiation transfer and light attenuation in the water column
 * Primary production by phytoplankton
-* Decomposition of organic matter
-* CO₂ production and diffusive exchange with the atmosphere
-* Sediment organic carbon burial
+* Primary production by submerged aquatic vegetation (SAV)
+* Metabolism of phytoplankton and SAV (growth, respiration, mortality)
+* Oxic methane production
+* Aerobic methane oxidation
+* Heterotrophic respiration and carbon decomposition
+* Dissolved gas transport and diffusive exchange with the atmosphere
 
-Methane (CH₄) Module
+Sediment Biogeochemistry Module (SBM)
 ~~~~~~~~~~~~~~~~~~~~~
 
-The methane module represents CH₄ production in anoxic sediments, its
-transport through diffusion and ebullition (bubble flux), and oxidation
-in the water column. Key processes include:
+The SBM module simulates the cycling of organic and inorganic carbon
+in sediments, including:
 
-* Methanogenesis in sediment layers
-* Dissolved CH₄ diffusion in the water column
-* Bubble nucleation and transport (ebullition)
-* Aerobic CH₄ oxidation
+* Methanogenesis
+* Aerobic carbon decomposition
+* Organic matter deposition
+* Dissolved gas transport in pore water
+* Bubble formation
 
-Phytoplankton Module
+Bubble Transport Module (BTM)
 ~~~~~~~~~~~~~~~~~~~~~
 
-The phytoplankton module simulates the growth and loss of phytoplankton
-biomass as a function of light availability, water temperature, and
-nutrient concentrations. It provides chlorophyll *a* as a model output.
+The BTM module represents bubble transport in the water column. Key processes include:
 
-Diagenesis Module
-~~~~~~~~~~~~~~~~~
-
-The diagenesis module represents early diagenesis in lake sediments,
-including anaerobic decomposition, nutrient recycling, and the production
-of dissolved gases (CO₂, CH₄) in pore water.
+* Bubble dissolution in the water column
+* Bubble rise and vertical transport in the water column
+* Bubble emission to the atmosphere (ebullition)
 
 Coordinate System and Resolution
 ---------------------------------
