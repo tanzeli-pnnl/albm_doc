@@ -13,7 +13,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 project   = u'ALBM'
-copyright = u'2026, Zeli Tan'
+copyright = u'2015-2026, Zeli Tan'
 author    = u'Zeli Tan'
 
 version = u'1.0'
