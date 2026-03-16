@@ -32,6 +32,7 @@ Issue on the GitHub page or by contacting `the author <mailto:tanzeli1982@gmail.
    :hidden:
 
    GettingStarted.rst
+   ModelConfigs.rst
    Inputs.rst
    ModelOutput.rst
 
