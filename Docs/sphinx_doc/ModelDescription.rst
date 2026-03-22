@@ -31,6 +31,8 @@ and Bubble Transport Module (BTM). The coupling scheme of these modules is illus
 
    Schematic of the coupling between different modules in ALBM.
 
+.. _model-modules:
+
 Model Modules
 -------------
 
@@ -108,6 +110,8 @@ The BTM module represents bubble transport in the water column. Key processes in
 * Bubble rise and vertical transport in the water column
 * Bubble emission to the atmosphere (ebullition)
 
+.. _model-resolution:
+
 Coordinate System and Resolution
 ---------------------------------
 
@@ -134,5 +138,5 @@ near the surface and at the sediment-water interface. When the lake depth is sma
 the thickness of water layers is uniform at 0.1 m and the number of water layers is adjusted accordingly.
 The total depth of sediment columns is set to 25 meters, which allows the simulation of thick permafrost.
 
-These values can be modified in the ``[resolution]`` section of the
-namelist file (see :ref:`Inputs`).
+These values can be modified in the ``resolution`` group of the
+namelist file (see :ref:`namelist-groups`).

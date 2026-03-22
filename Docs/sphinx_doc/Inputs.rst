@@ -7,8 +7,17 @@ ALBM is configured through a Fortran namelist file named ``namelist.bLake``
 located in the ``src`` directory. The namelist is divided into the
 following groups (see :doc:`ModelConfigs` for details).
 
-Input Data Files
-----------------
+.. _lake-attributes:
+
+Lake Attributes
+---------------
+
+Lake geographic attributes (e.g., location, surface area, depth) must be
+
+.. _forcing-inputs:
+
+Forcing Data
+------------
 
 Climate Forcing
 ~~~~~~~~~~~~~~~
@@ -47,6 +56,9 @@ An example atmospheric forcing file layout is::
     float sfcWind(time) ;
   }
 
+Hydrology Forcing
+~~~~~~~~~~~~~~~~~
+
 Hydrology forcing should also be in NetCDF-3 format when
 ``Hydro_Module = .True.``. An example layout is::
 
@@ -69,8 +81,10 @@ The ISIMIP2b climate forcing data used in published ALBM simulations
 are available from the ISIMIP data portal
 (https://www.isimip.org/outputdata/).
 
-Lake Morphometry
-~~~~~~~~~~~~~~~~
+.. _bathymetry-inputs:
+
+Bathymetry Data
+----------------
 
 Lake morphometry data (depth, surface area, bathymetry) must be
 provided in NetCDF format. A curated dataset for the ISIMIP lake
@@ -81,3 +95,17 @@ ensemble is available from:
 The same DOI provides additional ALBM input datasets referenced by the
 manual (radiation support files, auxiliary geospatial layers, and
 configuration inputs).
+
+.. _parameter-sample-file:
+
+Parameter Sample File
+---------------------
+
+A sample namelist file with example input paths and parameter values is
+
+.. _other-inputs:
+
+Other Input Datasets
+---------------------
+
+In addition to the above, ALBM also requires several auxiliary datasets for

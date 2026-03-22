@@ -52,8 +52,9 @@ For example,
    export PATH=/path/to/openmpi/bin:$PATH
    export LD_LIBRARY_PATH=/path/to/openmpi/lib:$LD_LIBRARY_PATH
 
-In Linux clusters, Fortran compiler and MPI modules may have been installed as modules. 
-You need to load the appropriate Fortran compiler and MPI modules before building ALBM and PnetCDF.
+If the Linux system is a high-performance computing (HPC) cluster, Fortran compiler and MPI modules 
+may have already been installed as modules. Then, ensure you load the appropriate modules 
+before building ALBM and PnetCDF.
 
 .. code:: shell
 
@@ -66,7 +67,7 @@ or
    module load intel mvapich2
 
 
-On macOS, a common setup is:
+On macOS, a common setup is to install Fortran compiler and MPI modules via `Homebrew <https://brew.sh/>`_:
 
 .. code:: shell
 
